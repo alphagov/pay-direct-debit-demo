@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
         },
         body: JSON.stringify({
           'reference': 'JONHESLOP-TEST-1',
-          'return_url': 'https://www.payments.service.gov.uk'
+          'return_url': 'https://pay-direct-debit-demo.cloudapps.digital/success'
         })
       }
     )
