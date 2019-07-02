@@ -1,6 +1,7 @@
 {% extends "common/templates/layout.njk" %}
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
 
 {% block pageTitle %}
   Pay for green garden waste - GOV.UK
@@ -15,19 +16,12 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
-      Pay for green garden waste
-    </h1>
-    <p class="govuk-body-l">Set up a direct debit for garden waste disposal</p>
-
-    <form method="post">
-      {{
-        govukButton({
-          text: "Start now",
-          isStartButton: true
-          })
-      }}
-    </form>
+    {{
+      govukPanel({
+        titleText: "Application complete",
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+      })
+    }}
 
     <h3 class="govuk-heading-m govuk-!-margin-top-4">Words about the thing</h3>
     <p class="govuk-body">So you two dig up, dig up dinosaurs? Do you have any idea how long it takes those cups to decompose. God creates dinosaurs. God destroys dinosaurs. God creates Man. Man destroys God. Man creates Dinosaurs. Jaguar shark! So tell me - does it really exist?</p>

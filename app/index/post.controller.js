@@ -1,33 +1,27 @@
 'use strict'
 
-// Local dependencies
-const { validator } = require('../../common/utils/field-validator')
+// NPM dependencies
+const got = require('got')
 
-module.exports = (req, res) => {
-  const supportType = req.body['support-type']
-
-  if (supportType === 'somethings-wrong') {
-    return res.redirect('/')
-  }
-
-  if (supportType === 'help') {
-    return res.redirect('/')
-  }
-
-  const errors = validator([
-    {
-      name: 'support-type',
-      type: 'radio',
-      validate: 'required',
-      value: req.body['support-type'],
-      label: 'How can we help you?',
-      id: 'support-type',
-      message: 'Please choose an option'
-    }
-  ])
-
-  if (errors) {
-    req.flash('error', errors)
+module.exports = async (req, res) => {
+  try {
+    const { body } = await got.post(
+      'https://publicapi.payments.service.gov.uk/v1/directdebit/mandates',
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.DD_API_KEY}`
+        },
+        body: JSON.stringify({
+          'reference': 'JONHESLOP-TEST-1',
+          'return_url': 'https://www.payments.service.gov.uk'
+        })
+      }
+    )
+    return res.redirect(JSON.parse(body)['_links'].next_url.href)
+  } catch (error) {
+    console.log('ERROR >>>', error)
+    req.flash('error', 'Something went wrong, please try again')
     return res.redirect('/')
   }
 }

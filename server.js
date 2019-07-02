@@ -36,7 +36,7 @@ const APP_VIEWS = [
 
 function initialiseGlobalMiddleware (app) {
   app.set('settings', { getVersionedPath: staticify.getVersionedPath })
-  app.use(favicon(path.join(__dirname, 'node_modules/govuk-frontend/assets/', 'images', 'favicon.ico')))
+  app.use(favicon(path.join(__dirname, 'node_modules/govuk-frontend/govuk/assets/', 'images', 'favicon.ico')))
   app.use(compression())
   app.use(staticify.middleware)
 
@@ -89,7 +89,7 @@ function initialiseTemplateEngine (app) {
 function initialisePublic (app) {
   app.use('/public/images', express.static(path.join(__dirname, '/common/assets/images'), publicCaching))
   app.use('/public', express.static(path.join(__dirname, '/public'), publicCaching))
-  app.use('/', express.static(path.join(__dirname, '/node_modules/govuk-frontend/')))
+  app.use('/', express.static(path.join(__dirname, '/node_modules/govuk-frontend/govuk/')))
 }
 
 function initialiseClientSessions (app) {

@@ -54,7 +54,7 @@ module.exports = function (grunt) {
   const uglify = {
     my_target: {
       files: {
-        'public/js/application.min.js': ['node_modules/govuk-frontend/all.js']
+        'public/js/application.min.js': ['node_modules/govuk-frontend/govuk/all.js']
       }
     }
   }

@@ -1,20 +1,12 @@
-{% from "components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
-{% from "components/footer/macro.njk" import govukFooter %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/footer/macro.njk" import govukFooter %}
 
-{% extends "template.njk" %}
+{% extends "govuk/template.njk" %}
 
-{% block pageTitle %}GOV.UK Pay{% endblock %}
+{% block pageTitle %}GOV.UK{% endblock %}
 
 {% block head %}
   {% include "common/templates/includes/head.njk" %}
-{% endblock %}
-
-{% block header %}
-  {% include "common/templates/includes/header.njk" %}
-{% endblock %}
-
-{% block footer %}
-  {% include "common/templates/includes/footer.njk" %}
 {% endblock %}
 
 {% block bodyEnd %}
