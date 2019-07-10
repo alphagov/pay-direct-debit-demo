@@ -7,20 +7,22 @@ const express = require('express')
 const getHomeController = require('./home/get.controller')
 const getReferenceController = require('./reference/get.controller')
 const getSummaryController = require('./summary/get.controller')
+const postSummaryController = require('./summary/post.controller')
 
 // Initialisation
 const router = new express.Router()
-const indexPath = '/borchester'
+const indexPath = '/'
 const paths = {
   home: indexPath,
-  reference: `${indexPath}/reference`,
-  summary: `${indexPath}/summary`
+  reference: '/reference',
+  summary: '/summary'
 }
 
 // Routing
 router.get(paths.home, getHomeController)
 router.get(paths.reference, getReferenceController)
 router.get(paths.summary, getSummaryController)
+router.post(paths.summary, postSummaryController)
 
 // Export
 module.exports = {
