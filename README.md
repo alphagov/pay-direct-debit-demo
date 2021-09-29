@@ -1,5 +1,7 @@
 # GOV.UK Pay direct debit demo
 
+> As of September 2021, this repository is no longer actively maintained by the GOV.UK Pay team.
+
 This is a small app that contains initiates the creation of a direct debit mandate. We’re using it for accessibility testing of our direct debit flow..
 
 It’s a Node.js [Express] app and uses a pre-release of [GOV.UK Frontend] 3.0
